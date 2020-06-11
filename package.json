@@ -46,6 +46,5 @@
     "@babel/cli": "^7.10.1",
     "@babel/preset-react": "^7.10.1"
   },
-  "author": "Ritesh",
-  "publish:npm": "rm -rf dist && mkdir dist &&  babel src/components -d dist --copy-files"
+  "author": "Ritesh"
 }
