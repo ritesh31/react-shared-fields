@@ -2,7 +2,7 @@
   "name": "react-shared-fields",
   "version": "0.1.0",
   "description": "Create common forms fields like input, choice fields using ReactJS",
-  "private": true,
+  "private": false,
   "babel": {
     "presets": [
       "@babel/preset-react"
