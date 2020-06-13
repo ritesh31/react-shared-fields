@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 import { Theme } from './theme';
-
 export const Input = styled.input`
   display: block;
-  width: ${(props) => (props.editable ? 'calc(100% - 65px)' : '100%')};
-  height: calc(1.5em + 1.3rem + 2px);
+  width: ${props => props.editable ? 'calc(100% - 65px)' : '100%'};
   padding: 1.2rem 1rem 0.65rem 1rem;
   font-weight: ${Theme['$font-w-400']};
   line-height: 1.5;
@@ -44,7 +42,6 @@ export const Input = styled.input`
     padding: 10px;
   }
 `;
-
 export const FormField = styled.div`
   label {
     margin: 0 0 0 10px;
@@ -60,7 +57,6 @@ export const FormField = styled.div`
     height: auto !important;
   }
 `;
-
 export const ErrorLabel = styled.div`
   color: #9d323a;
   font-size: ${Theme['$small-f-size']};

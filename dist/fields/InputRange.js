@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { FormField } from "../styledcomponents/Global";
 import "react-input-range/lib/css/index.css";
 
-const InputRangeField = (props) => {
+const InputRangeField = props => {
   const {
     value,
     minValue,
@@ -15,36 +15,38 @@ const InputRangeField = (props) => {
     fieldKey,
     formatLabel,
     step,
-    id,
+    id
   } = props;
 
-  const fieldChange = (selectedValue) => {
+  const fieldChange = selectedValue => {
     onChange({
       key: fieldKey,
-      value: selectedValue,
+      value: selectedValue
     });
   };
-  return (
-    <RangeFormField className="form-group">
-      <label htmlFor={id}>{label}</label>
-      <div className="row">
-        <div className="col-9">
-          <InputRange
-            value={value}
-            onChange={fieldChange}
-            minValue={minValue}
-            maxValue={maxValue}
-            step={step}
-            id={id}
-          />
-        </div>
-        <div className="col-2">
-          <div className="average"> {formatLabel(value)}</div>
-        </div>
-      </div>
-    </RangeFormField>
-  );
+
+  return /*#__PURE__*/React.createElement(RangeFormField, {
+    className: "form-group"
+  }, /*#__PURE__*/React.createElement("label", {
+    htmlFor: id
+  }, label), /*#__PURE__*/React.createElement("div", {
+    className: "row"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "col-9"
+  }, /*#__PURE__*/React.createElement(InputRange, {
+    value: value,
+    onChange: fieldChange,
+    minValue: minValue,
+    maxValue: maxValue,
+    step: step,
+    id: id
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "col-2"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "average"
+  }, " ", formatLabel(value)))));
 };
+
 InputRangeField.propTypes = {
   label: PropTypes.string.isRequired,
   value: PropTypes.number,
@@ -54,14 +56,12 @@ InputRangeField.propTypes = {
   onChange: PropTypes.func.isRequired,
   fieldKey: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  formatLabel: PropTypes.func.isRequired,
+  formatLabel: PropTypes.func.isRequired
 };
-
 InputRangeField.defaultProps = {
   value: 0,
-  step: null,
+  step: null
 };
-
 const RangeFormField = styled(FormField)`
   label {
     bottom: 0px;
@@ -76,5 +76,4 @@ const RangeFormField = styled(FormField)`
     padding-left: 0px !important;
   }
 `;
-
 export default InputRangeField;

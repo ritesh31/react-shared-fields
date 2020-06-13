@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-// import MenuItem from "@material-ui/core/MenuItem";
-// import Select from "@material-ui/core/Select";
-// import Chip from "@material-ui/core/Chip";
-// import CancelIcon from "@material-ui/icons/Cancel";
+import MenuItem from "@material-ui/core/MenuItem";
+import Select from "@material-ui/core/Select";
+import Chip from "@material-ui/core/Chip";
+import CancelIcon from "@material-ui/icons/Cancel";
 
 /* CSS Theme */
 import styled from "styled-components";
-import { ErrorLabel, FormField } from "../../styledcomponents/Global";
+import { ErrorLabel, FormField } from "../styledcomponents/Global";
 
 const ChoiceField = (props) => {
   const [formValue, setFormValue] = useState("");

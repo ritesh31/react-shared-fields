@@ -22,8 +22,9 @@ export default function LabelField(props) {
     logo,
     labelClass,
     multiple,
-    editType,
+    editType
   } = props;
+
   const getValue = () => {
     if (value) {
       switch (type) {
@@ -33,6 +34,7 @@ export default function LabelField(props) {
               if (format) {
                 let j = 0;
                 let formattedValue = prefix || '';
+
                 for (let i = 0; i < format.length; i += 1) {
                   if (format[i] === '#') {
                     formattedValue += value[j];
@@ -41,108 +43,88 @@ export default function LabelField(props) {
                     formattedValue += format[i];
                   }
                 }
+
                 formattedValue += suffix || '';
                 return formattedValue;
               }
 
-              return `${prefix || ''} ${numeral(value).format('0,0.00')} ${
-                suffix || ''
-              }`;
+              return `${prefix || ''} ${numeral(value).format('0,0.00')} ${suffix || ''}`;
+
             case 'currency':
               return `$ ${numeral(value).format('0,0.00')}`;
+
             default:
               return value;
           }
+
         case 'text':
           return value;
+
         case 'typeahead':
           switch (subType) {
             case 'async':
             case 'multiChoice':
               if (typeof value[0] !== 'string') {
-                const values = value.map((item) => item[keyLabel || 'label']);
+                const values = value.map(item => item[keyLabel || 'label']);
                 return values.join(', ');
               }
+
               return value.join(', ');
+
             default:
               return value;
           }
+
         case 'date':
           if (multiple) {
-            const values = value.map((item) =>
-              moment(item).format('MM/DD/YYYY')
-            );
+            const values = value.map(item => moment(item).format('MM/DD/YYYY'));
             return values.join(', ');
           }
+
           return moment(value).format('MM/DD/YYYY');
+
         default:
           return value;
       }
     }
+
     return 'N/A';
   };
+
   const onClick = () => {
     if (editable) {
       setIsEditing(true);
     }
   };
-  return (
-    <Field
-      className="form-group"
-      editable={editable}
-      editType={editType}
-      onClick={onClick}
-    >
-      {layout === 'inline' ? (
-        <div className="label">
-          {label} : <span>{getValue()}</span>
-          {editable ? (
-            <i
-              onClick={() => setIsEditing(true)}
-              className="fa fa-pencil fa-1x pull-right"
-              aria-hidden="true"
-            />
-          ) : (
-            ''
-          )}
-        </div>
-      ) : (
-        <Field.VerticalBox
-          className={
-            labelClass ? `${labelClass} vertical-align` : 'vertical-align'
-          }
-        >
-          {logo ? (
-            <Field.LogoBox>
-              <Logo src={logo} />
-            </Field.LogoBox>
-          ) : (
-            ''
-          )}
 
-          <Field.VerticalBox.Label className="label">
-            <div>{label} :</div>
-            <span>
-              {getValue()}
-              {editable ? (
-                <i className="fa fa-pencil pl-3 fa-1x" aria-hidden="true" />
-              ) : (
-                ''
-              )}
-            </span>
-          </Field.VerticalBox.Label>
-        </Field.VerticalBox>
-      )}
-    </Field>
-  );
+  return /*#__PURE__*/React.createElement(Field, {
+    className: "form-group",
+    editable: editable,
+    editType: editType,
+    onClick: onClick
+  }, layout === 'inline' ? /*#__PURE__*/React.createElement("div", {
+    className: "label"
+  }, label, " : ", /*#__PURE__*/React.createElement("span", null, getValue()), editable ? /*#__PURE__*/React.createElement("i", {
+    onClick: () => setIsEditing(true),
+    className: "fa fa-pencil fa-1x pull-right",
+    "aria-hidden": "true"
+  }) : '') : /*#__PURE__*/React.createElement(Field.VerticalBox, {
+    className: labelClass ? `${labelClass} vertical-align` : 'vertical-align'
+  }, logo ? /*#__PURE__*/React.createElement(Field.LogoBox, null, /*#__PURE__*/React.createElement(Logo, {
+    src: logo
+  })) : '', /*#__PURE__*/React.createElement(Field.VerticalBox.Label, {
+    className: "label"
+  }, /*#__PURE__*/React.createElement("div", null, label, " :"), /*#__PURE__*/React.createElement("span", null, getValue(), editable ? /*#__PURE__*/React.createElement("i", {
+    className: "fa fa-pencil pl-3 fa-1x",
+    "aria-hidden": "true"
+  }) : ''))));
 }
-
 const Field = styled(FormField)`
   i {
     display: none;
   }
   &:hover {
-    cursor: ${(props) => (props.editable ? 'pointer' : 'auto')};
+    cursor: ${props => props.editable ? 'pointer' : 'auto'};
     i {
       display: inline-block;
     }
@@ -156,12 +138,7 @@ LabelField.propTypes = {
   subType: PropTypes.string,
   label: PropTypes.string.isRequired,
   prefix: PropTypes.string,
-  value: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string),
-    PropTypes.objectOf(PropTypes.any),
-  ]),
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.arrayOf(PropTypes.string), PropTypes.objectOf(PropTypes.any)]),
   editable: PropTypes.bool.isRequired,
   setIsEditing: PropTypes.func.isRequired,
   layout: PropTypes.string,
@@ -171,9 +148,8 @@ LabelField.propTypes = {
   labelClass: PropTypes.string,
   multiple: PropTypes.bool,
   logo: PropTypes.string,
-  editType: PropTypes.string,
+  editType: PropTypes.string
 };
-
 LabelField.defaultProps = {
   value: null,
   keyLabel: '',
@@ -185,7 +161,7 @@ LabelField.defaultProps = {
   prefix: '',
   subType: '',
   format: '',
-  editType: '',
+  editType: ''
 };
 Field.VerticalBox = styled.div`
   &.box-layout {

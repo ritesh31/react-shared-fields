@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-
 import { ErrorLabel, Input, FormField } from "../styledcomponents/Global";
 
-const InputField = (props) => {
+const InputField = props => {
   const [formValue, setFormValue] = useState("");
   const {
     subType,
@@ -19,20 +18,19 @@ const InputField = (props) => {
     setIsEditing,
     fieldKey,
     onChange,
-    question,
+    question
   } = props;
-
   useEffect(() => {
     setFormValue(value);
   }, [value]);
 
-  const fieldChange = (event) => {
+  const fieldChange = event => {
     if (editable) {
       setFormValue(event.target.value);
     } else {
       onChange({
         key: fieldKey,
-        value: event.target.value,
+        value: event.target.value
       });
     }
   };
@@ -41,50 +39,43 @@ const InputField = (props) => {
     setIsEditing(false);
     onChange({
       key: fieldKey,
-      value: formValue,
+      value: formValue
     });
   };
 
-  return (
-    <FormField editable={editable} className="form-group">
-      {question ? (
-        <div className="label"> {label}</div>
-      ) : (
-        <label htmlFor={id}>{label}</label>
-      )}
-      <Input
-        type={subType}
-        name={name}
-        value={editable ? formValue : value}
-        onChange={(event) => fieldChange(event)}
-        readOnly={readOnly}
-        id={id}
-        className={inputClass}
-        min={minValue || 0}
-        editable={editable}
-      />
-      {editable ? (
-        <div
-          style={{ position: "absolute", top: "35px", right: "20px" }}
-          className="pull-right"
-        >
-          <i
-            onClick={setEditingValue}
-            className="fa fa-check-circle fa-2x mr-2"
-            aria-hidden="true"
-          />
-          <i
-            onClick={() => setIsEditing(false)}
-            className="fa fa-times-circle fa-2x"
-            aria-hidden="true"
-          />
-        </div>
-      ) : (
-        ""
-      )}
-      <ErrorLabel>{error || ""}</ErrorLabel>
-    </FormField>
-  );
+  return /*#__PURE__*/React.createElement(FormField, {
+    editable: editable,
+    className: "form-group"
+  }, question ? /*#__PURE__*/React.createElement("div", {
+    className: "label"
+  }, " ", label) : /*#__PURE__*/React.createElement("label", {
+    htmlFor: id
+  }, label), /*#__PURE__*/React.createElement(Input, {
+    type: subType,
+    name: name,
+    value: editable ? formValue : value,
+    onChange: event => fieldChange(event),
+    readOnly: readOnly,
+    id: id,
+    className: inputClass,
+    min: minValue || 0,
+    editable: editable
+  }), editable ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "absolute",
+      top: "35px",
+      right: "20px"
+    },
+    className: "pull-right"
+  }, /*#__PURE__*/React.createElement("i", {
+    onClick: setEditingValue,
+    className: "fa fa-check-circle fa-2x mr-2",
+    "aria-hidden": "true"
+  }), /*#__PURE__*/React.createElement("i", {
+    onClick: () => setIsEditing(false),
+    className: "fa fa-times-circle fa-2x",
+    "aria-hidden": "true"
+  })) : "", /*#__PURE__*/React.createElement(ErrorLabel, null, error || ""));
 };
 
 InputField.propTypes = {
@@ -101,11 +92,7 @@ InputField.propTypes = {
   setIsEditing: PropTypes.func.isRequired,
   fieldKey: PropTypes.string.isRequired,
   question: PropTypes.bool,
-  error: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object,
-    PropTypes.array,
-  ]).isRequired,
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.object, PropTypes.array]).isRequired
 };
 InputField.defaultProps = {
   error: "",
@@ -115,6 +102,6 @@ InputField.defaultProps = {
   minValue: null,
   inputClass: "",
   value: "",
-  name: "",
+  name: ""
 };
 export default InputField;
