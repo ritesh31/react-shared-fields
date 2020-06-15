@@ -50,8 +50,11 @@ const Field = props => {
       return /*#__PURE__*/React.createElement(TextAreaField, _extends({}, props, {
         setIsEditing: setIsEditing
       }));
-    // case "input-range":
-    //   return <InputRangeField {...props} setIsEditing={setIsEditing} />;
+
+    case "input-range":
+      return /*#__PURE__*/React.createElement(InputRangeField, _extends({}, props, {
+        setIsEditing: setIsEditing
+      }));
 
     case 'checklist':
       return /*#__PURE__*/React.createElement(ChecklistField, _extends({}, props, {

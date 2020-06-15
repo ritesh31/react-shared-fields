@@ -27,50 +27,60 @@ function Card(props) {
       required: true,
     },
     {
-      type: 'number',
-      subType: 'text',
-      id: 'inputPhone',
-      label: 'Company Phone',
-      placeholder: 'Enter Phone',
-      key: 'company_phone',
-      format: '(###) ###-####',
-      prefix: '+1',
+      type: "number",
+      subType: "text",
+      id: "inputPhone",
+      label: "Company Phone",
+      placeholder: "Enter Phone",
+      key: "company_phone",
+      format: "(###) ###-####",
+      prefix: "+1",
       required: true,
     },
     {
-      type: 'textarea',
-      subType: 'text',
-      id: 'inputAboutCompany',
-      label: 'About Company',
-      key: 'about_company',
+      type: "textarea",
+      subType: "text",
+      id: "inputAboutCompany",
+      label: "About Company",
+      key: "about_company",
       required: true,
     },
     {
-      type: 'checklist',
-      id: 'inputCultivatorType',
-      label: 'CULTIVAR TYPE',
-      key: 'cf_cultivar_type__in',
-      class: 'col-12',
+      type: "checklist",
+      id: "inputCultivatorType",
+      label: "CULTIVAR TYPE",
+      key: "cf_cultivar_type__in",
+      class: "col-12",
       options: [
-        'Sativa',
-        'Indica',
-        'Hybrid - Sativa Dominant',
-        'Hybrid - Indica Dominant',
+        "Sativa",
+        "Indica",
+        "Hybrid - Sativa Dominant",
+        "Hybrid - Indica Dominant",
       ],
     },
     {
-      type: 'choices',
-      subType: 'text',
-      id: 'inputOwnerOrManager',
-      label: 'Owner Or Manager',
-      placeholder: 'Owner Or Manager',
+      type: "choices",
+      subType: "text",
+      id: "inputOwnerOrManager",
+      label: "Owner Or Manager",
+      placeholder: "Owner Or Manager",
       options: [
-        { label: 'Owner', value: 'owner' },
-        { label: 'Manager', value: 'Manager' },
+        { label: "Owner", value: "owner" },
+        { label: "Manager", value: "Manager" },
       ],
-      key: 'owner_or_manager',
+      key: "owner_or_manager",
       required: true,
       randomId: true,
+    },
+    {
+      type: "input-range",
+      id: "inputMinQuantityLBS",
+      label: "MINIMUM BATCH QUANTITY(lbs)",
+      key: "available_stock__gte",
+      class: "col-12",
+      minValue: 0,
+      maxValue: 100,
+      formatLabel: (value) => `${value}`,
     },
   ];
 
@@ -85,7 +95,7 @@ function Card(props) {
     <React.Fragment>
       <div>Card Component</div>
       <form>
-        <ReactSharedField 
+        <ReactSharedField
           fields={formConstant}
           data={formData}
           error={formError}
@@ -94,6 +104,6 @@ function Card(props) {
       </form>
     </React.Fragment>
   );
-};
+}
 
 export default Card;

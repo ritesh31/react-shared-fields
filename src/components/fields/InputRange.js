@@ -34,7 +34,7 @@ const InputRangeField = (props) => {
             onChange={fieldChange}
             minValue={minValue}
             maxValue={maxValue}
-            step={step}
+            // step={step}
             id={id}
           />
         </div>
@@ -63,6 +63,9 @@ InputRangeField.defaultProps = {
 };
 
 const RangeFormField = styled(FormField)`
+  width: 50%;
+  margin-top: 30px;
+  padding: 0px 10px;
   label {
     bottom: 0px;
     top: -10px;
@@ -71,6 +74,10 @@ const RangeFormField = styled(FormField)`
   }
   .col-2 {
     padding-left: 0px;
+  }
+  .col-9 {
+    margin-top: 25px;
+    padding-left: 5px;
   }
   .average {
     padding-left: 0px !important;

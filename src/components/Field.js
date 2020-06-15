@@ -30,8 +30,8 @@ const Field = (props) => {
     //   return <DatePicker {...props} setIsEditing={setIsEditing} />;
     case 'textarea':
       return <TextAreaField {...props} setIsEditing={setIsEditing} />;
-    // case "input-range":
-    //   return <InputRangeField {...props} setIsEditing={setIsEditing} />;
+    case "input-range":
+      return <InputRangeField {...props} setIsEditing={setIsEditing} />;
     case 'checklist':
       return <ChecklistField {...props} setIsEditing={setIsEditing} />;
     default:

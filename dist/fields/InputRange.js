@@ -37,8 +37,8 @@ const InputRangeField = props => {
     value: value,
     onChange: fieldChange,
     minValue: minValue,
-    maxValue: maxValue,
-    step: step,
+    maxValue: maxValue // step={step}
+    ,
     id: id
   })), /*#__PURE__*/React.createElement("div", {
     className: "col-2"
@@ -63,6 +63,9 @@ InputRangeField.defaultProps = {
   step: null
 };
 const RangeFormField = styled(FormField)`
+  width: 50%;
+  margin-top: 30px;
+  padding: 0px 10px;
   label {
     bottom: 0px;
     top: -10px;
@@ -71,6 +74,10 @@ const RangeFormField = styled(FormField)`
   }
   .col-2 {
     padding-left: 0px;
+  }
+  .col-9 {
+    margin-top: 25px;
+    padding-left: 5px;
   }
   .average {
     padding-left: 0px !important;

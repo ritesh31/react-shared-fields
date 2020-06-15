@@ -203,6 +203,7 @@ ChoiceField.defaultProps = {
   editable: false,
 };
 export const SelectPanel = styled.div`
+  width: 50%;
   .css-g1d714-ValueContainer {
     padding: 35px 0 1px 15px;
     font-size: 14px;
