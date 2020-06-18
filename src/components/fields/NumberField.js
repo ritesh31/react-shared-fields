@@ -136,6 +136,7 @@ NumberField.defaultProps = {
   format: null,
 };
 export const NumFieldBox = styled.div`
+  width: 15%;
   input {
     padding: 1.2rem 1rem 0.65rem 1rem;
   }

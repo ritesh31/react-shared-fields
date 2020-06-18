@@ -26,8 +26,8 @@ const Field = (props) => {
       return <ChoiceField {...props} setIsEditing={setIsEditing} />;
     case "number":
       return <NumberField {...props} setIsEditing={setIsEditing} />;
-    // case 'date':
-    //   return <DatePicker {...props} setIsEditing={setIsEditing} />;
+    case 'date':
+      return <DatePicker {...props} setIsEditing={setIsEditing} />;
     case 'textarea':
       return <TextAreaField {...props} setIsEditing={setIsEditing} />;
     case "input-range":

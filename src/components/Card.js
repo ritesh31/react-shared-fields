@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import moment from "moment";
 import { ReactSharedField } from "./FieldRenderer";
 
 function Card(props) {
@@ -81,6 +82,17 @@ function Card(props) {
       minValue: 0,
       maxValue: 100,
       formatLabel: (value) => `${value}`,
+    },
+    {
+      type: "date",
+      subType: "date",
+      id: "inputDateOfBirth",
+      label: "Date Of Birth",
+      placeholder: "Date of Birth",
+      key: "date_of_birth",
+      maxDate: moment().subtract(21, "years"),
+      format: "yyyy-MM-dd",
+      required: true,
     },
   ];
 

@@ -43,8 +43,11 @@ const Field = props => {
       return /*#__PURE__*/React.createElement(NumberField, _extends({}, props, {
         setIsEditing: setIsEditing
       }));
-    // case 'date':
-    //   return <DatePicker {...props} setIsEditing={setIsEditing} />;
+
+    case 'date':
+      return /*#__PURE__*/React.createElement(DatePicker, _extends({}, props, {
+        setIsEditing: setIsEditing
+      }));
 
     case 'textarea':
       return /*#__PURE__*/React.createElement(TextAreaField, _extends({}, props, {
