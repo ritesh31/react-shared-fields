@@ -1,6 +1,6 @@
 {
   "name": "react-shared-fields",
-  "version": "0.1.5",
+  "version": "0.1.9",
   "description": "Create common forms fields like input, choice fields using ReactJS",
   "private": false,
   "_inBundle": false,
