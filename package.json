@@ -24,6 +24,7 @@
     "moment-timezone": "^0.5.31",
     "numeral": "^2.0.6",
     "react": "^16.13.1",
+    "react-bootstrap-typeahead": "^5.0.0-alpha.1",
     "react-dom": "^16.13.1",
     "react-input-range": "^1.3.0",
     "react-number-format": "^4.4.1",
