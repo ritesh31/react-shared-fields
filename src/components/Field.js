@@ -5,13 +5,13 @@ import PropTypes from "prop-types";
 import InputField from "./fields/InputField";
 import ChoiceField from "./fields/ChoiceField";
 import NumberField from "./fields/NumberField";
-import DatePicker from './fields/DatePicker';
-// import TypeAheadField from './TypeAhead';
+import DatePicker from "./fields/DatePicker";
+import TypeAheadField from "./TypeAhead";
 // import FileUploader from './FileUploader';
-import TextAreaField from './fields/TextAreaField';
+import TextAreaField from "./fields/TextAreaField";
 import InputRangeField from "./fields/InputRange";
-import ChecklistField from './fields/ChecklistField';
-import LabelField from './fields/LabelField';
+import ChecklistField from "./fields/ChecklistField";
+import LabelField from "./fields/LabelField";
 
 const Field = (props) => {
   const { type, editable, isLabel } = props;
@@ -26,14 +26,16 @@ const Field = (props) => {
       return <ChoiceField {...props} setIsEditing={setIsEditing} />;
     case "number":
       return <NumberField {...props} setIsEditing={setIsEditing} />;
-    case 'date':
+    case "date":
       return <DatePicker {...props} setIsEditing={setIsEditing} />;
-    case 'textarea':
+    case "textarea":
       return <TextAreaField {...props} setIsEditing={setIsEditing} />;
     case "input-range":
       return <InputRangeField {...props} setIsEditing={setIsEditing} />;
-    case 'checklist':
+    case "checklist":
       return <ChecklistField {...props} setIsEditing={setIsEditing} />;
+    case "typeahead":
+      return <TypeAheadField {...props} setIsEditing={setIsEditing} />;
     default:
       return null;
   }
